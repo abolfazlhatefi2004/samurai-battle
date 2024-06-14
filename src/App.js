@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Container from './componet/Container';
+import Home from './componet/homePage/Home';
+import GamePage from "./componet/gamePage/Gamepage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bg-[#040001] relative' >
+      <Routes>
+        <Route element={<Container />}>
+          <Route index element={<Home />}></Route>
+          <Route path='/game-page' element={<GamePage />}></Route>
+        </Route>
+      </Routes>
     </div>
   );
 }
