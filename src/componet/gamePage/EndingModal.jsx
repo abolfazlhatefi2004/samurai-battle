@@ -13,7 +13,7 @@ export default function EndingMomal({ modalInfo, playAgainHandler }) {
                     </div>
                     {/* Modal footer  */}
                     <div className="flex flex-row-reverse items-center gap-2 p-4 md:p-5  rounded-b dark:border-gray-600">
-                        <Link to='/'
+                        <Link to='/samurai-battle'
                             className="text-white bg-red-600 border-2 border-red-600 hover:bg-blue-800 hover:border-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Home</Link>
                         <button type="button"

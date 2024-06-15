@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Container from './componet/Container';
 import Home from './componet/homePage/Home';
 import GamePage from "./componet/gamePage/Gamepage";
@@ -7,12 +7,16 @@ import GamePage from "./componet/gamePage/Gamepage";
 function App() {
   return (
     <div className='bg-[#040001] relative' >
-      <Routes>
-        <Route element={<Container />}>
-          <Route index element={<Home />}></Route>
-          <Route path='/game-page' element={<GamePage />}></Route>
-        </Route>
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Container />}>
+            <Route path="/samurai-battle" element={<Home />} />
+            <Route path='/samurai-battle/game-page' element={<GamePage />} />
+            <Route path='*' 
+            element={<div className="h-[100uh] text-4xl flex justify-center items-center text-white">there is no page</div>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
