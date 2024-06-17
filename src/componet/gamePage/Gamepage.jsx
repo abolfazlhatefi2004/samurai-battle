@@ -289,11 +289,12 @@ export default function GamePage() {
                 }
             });
             function determineWinner({ player, enemy }) {
+                // setTimeout(() => cancelAnimationFrame(animationloop), 700);
                 (enemy.health === player.health) ? setModalInfo({ flag: true, massage: 'Tie' }) :
                     (enemy.health < player.health) ? setModalInfo({ flag: true, massage: 'Samurai Mack is won' }) :
                         setModalInfo({ flag: true, massage: 'Evil Wizard is won' });
                 // cancel the animation loop 
-                setTimeout(() => cancelAnimationFrame(animationloop), 1000);
+                cancelAnimationFrame(animationloop)
             }
             // animating function
             function Animation() {
@@ -378,7 +379,7 @@ export default function GamePage() {
                     enemy.isAttacking = false;
                 }
                 // end game based in health
-                ((enemy.health <= 0 || player.health <= 0) && !modalInfo.flag) && determineWinner({ player, enemy });
+                ((enemy.health <= 0 || player.health <= 0) && !modalInfo.flag) && setTimeout(() => determineWinner({ player, enemy }), 1000);
 
 
             }
