@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/samurai-battle/static/css/main.28009aa0.css",
-    "main.js": "/samurai-battle/static/js/main.172ba759.js",
+    "main.js": "/samurai-battle/static/js/main.dff8f8cd.js",
     "static/js/453.3f02a22e.chunk.js": "/samurai-battle/static/js/453.3f02a22e.chunk.js",
     "static/media/Samurai.jpg": "/samurai-battle/static/media/Samurai.f64b940a09485ebf1015.jpg",
     "static/media/background.png": "/samurai-battle/static/media/background.3ed950731455d7715e89.png",
@@ -12,11 +12,11 @@
     "static/media/Idle.png": "/samurai-battle/static/media/Idle.4f899c0b105fe8de2644.png",
     "index.html": "/samurai-battle/index.html",
     "main.28009aa0.css.map": "/samurai-battle/static/css/main.28009aa0.css.map",
-    "main.172ba759.js.map": "/samurai-battle/static/js/main.172ba759.js.map",
+    "main.dff8f8cd.js.map": "/samurai-battle/static/js/main.dff8f8cd.js.map",
     "453.3f02a22e.chunk.js.map": "/samurai-battle/static/js/453.3f02a22e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.28009aa0.css",
-    "static/js/main.172ba759.js"
+    "static/js/main.dff8f8cd.js"
   ]
 }
