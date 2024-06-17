@@ -62,6 +62,10 @@ export default function GamePage() {
                     pressed: false
                 },
             };
+            const jumpLimite = {
+                enemy: 0,
+                player: 0,
+            };
             // make backgroundImage
             const background = new Sprite({
                 position: {
@@ -216,19 +220,26 @@ export default function GamePage() {
 
             window.addEventListener('keydown', e => {
                 if (!player.dead) {
-                    switch (e.key) {
-                        case 'd':
+                    switch (e.keyCode) {
+                        case 68:
+                            // d
                             keys.d.pressed = true;
                             player.lastKey = 'd';
                             break;
-                        case 'a':
+                        case 65:
+                            // a
                             keys.a.pressed = true;
                             player.lastKey = 'a';
                             break;
-                        case 'w':
-                            player.velocity.y = -20;
+                        case 87:
+                            // w
+                            if (player.position.y > 150 && jumpLimite.player < 2) {
+                                jumpLimite.player += 1;
+                                player.velocity.y = -20;
+                            }
                             break;
-                        case 's':
+                        case 83:
+                            // s
                             player.attack();
                             break;
                     }
@@ -244,7 +255,10 @@ export default function GamePage() {
                             enemy.lastKey = 'ArrowLeft';
                             break;
                         case 'ArrowUp':
-                            enemy.velocity.y = -20;
+                            if (enemy.position.y > 150 && jumpLimite.enemy < 2) {
+                                jumpLimite.enemy += 1;
+                                enemy.velocity.y = -20;
+                            }
                             break;
                         case 'ArrowDown':
                             enemy.attack();
@@ -253,18 +267,24 @@ export default function GamePage() {
                 }
             });
             window.addEventListener('keyup', e => {
-                switch (e.key) {
-                    case 'd':
+                switch (e.keyCode) {
+                    case 68:
                         keys.d.pressed = false;
                         break;
-                    case 'a':
+                    case 65:
                         keys.a.pressed = false;
                         break;
-                    case 'ArrowRight':
+                    case 87:
+                        jumpLimite.player = 0;
+                        break;
+                    case 39:
                         keys.ArrowRight.pressed = false;
                         break;
-                    case 'ArrowLeft':
+                    case 37:
                         keys.ArrowLeft.pressed = false;
+                        break;
+                    case 38:
+                        jumpLimite.enemy = 0;
                         break;
                 }
             });
@@ -380,7 +400,7 @@ export default function GamePage() {
     return (
         <div className="h-screen flex justify-center">
             <canvas ref={preCanvas}></canvas>
-            <HealthBar  playersHealth={playersHealth} />
+            <HealthBar playersHealth={playersHealth} />
             {modalInfo.flag && <EndingModal modalInfo={modalInfo} playAgainHandler={playAgainHandler} />}
         </div>
     );
